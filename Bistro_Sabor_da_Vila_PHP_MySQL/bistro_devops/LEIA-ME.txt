@@ -8,6 +8,8 @@ FUNCIONALIDADES
 - Observação da cozinha, editável enquanto a comanda está aberta.
 - Marcação como entregue.
 - Cadastro, edição, ativação e desativação de produtos.
+- Cadastro de usuários com senha armazenada em hash.
+- Avaliações do restaurante com nota de uma a cinco estrelas e comentários.
 - Dez produtos de exemplo incluídos no SQL.
 - PDO, consultas preparadas e escape de saída HTML.
 
@@ -18,6 +20,8 @@ TESTE LOCAL (XAMPP)
 4. Confira config/database.php (padrão XAMPP: localhost, bistro_devops, root, senha vazia).
 5. Abra http://localhost/bistro_devops/
 6. Para gerenciar o cardápio: http://localhost/bistro_devops/produtos.php
+7. Para cadastrar um usuário: http://localhost/bistro_devops/cadastro.php
+8. Para avaliar o restaurante e ver comentários: http://localhost/bistro_devops/avaliar.php e http://localhost/bistro_devops/comentarios.php
 
 PUBLICAÇÃO NO INFINITYFREE
 1. Crie o banco MySQL pelo painel da hospedagem.
@@ -32,6 +36,9 @@ PUBLICAÇÃO NO INFINITYFREE
 ESTRUTURA
 index.php              Painel de comandas
 produtos.php           Cadastro e edição do cardápio
+cadastro.php           Cadastro de usuários
+avaliar.php            Cadastro de notas e comentários
+comentarios.php        Consulta das avaliações enviadas
 config/database.php    Conexão PDO
 database.sql           Tabelas e produtos de exemplo
 assets/style.css       Estilos responsivos
@@ -41,6 +48,7 @@ NOTAS
   operação falhar; isso é normal em bancos SQL.
 - O preço do item é copiado para a comanda e não muda se o preço do produto for alterado.
 - Produtos inativos não aparecem em novas comandas, mas continuam no histórico.
-- Sem login, conforme solicitado: use apenas como demonstração didática. Não use dados
-  reais nem exponha como sistema de produção sem implementar autenticação e autorização.
+- O cadastro armazena senhas com password_hash, mas ainda não implementa login nem
+  restringe o acesso ao painel. Não use dados reais nem exponha como sistema de produção
+  sem implementar autenticação e autorização.
 - Não publique credenciais reais em repositório público.
